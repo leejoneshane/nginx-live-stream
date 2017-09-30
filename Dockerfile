@@ -1,6 +1,6 @@
 FROM nginx:alpine
 
-RUN	apk update \
+RUN apk update \
     && apk add openssl ca-certificates nginx nginx-mod-rtmp ffmpeg nodejs \
 
 ADD	nginx.conf /etc/nginx/conf/nginx.conf
