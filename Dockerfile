@@ -8,4 +8,4 @@ ADD stat.xsl /etc/nginx/conf/static/stat.xsl
 
 EXPOSE 80 1935
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD nginx -g daemon off; && npm start
