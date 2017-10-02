@@ -1,15 +1,17 @@
 <head>
   <link href="video-js.min.css" rel="stylesheet">
-  <script src="videojs-ie8.min.js"></script>
+  <script src="ie8/videojs-ie8.min.js"></script>
 </head>
 
 <body>
+  <p align=center><div id="state">Waiting......</div>
   <video id="my-video" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264" data-setup="{}">
     <p class="vjs-no-js">
       To view this video please enable JavaScript, and consider upgrading to a web browser that
       <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
     </p>
   </video>
+  </p>
 
   <script src="video.min.js"></script>
   <script src="videojs-contrib-hls.min.js"></script>
@@ -35,10 +37,14 @@
   }
   
   load_stat();
+  while (stream_name=='undefined') {
+    load_stat();
+  }
+  document.getElementByID("state").innerText = '';
   
   var player = videojs('my-video');
   player.src({
-    src: '/hls/' + stream_name + '.m3u8',
+    src: '/live/' + stream_name + '.m3u8',
     type: 'application/x-mpegURL'
   });
   player.play();
