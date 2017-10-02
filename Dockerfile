@@ -21,4 +21,4 @@ VOLUME /var/rec
 
 EXPOSE 80 1935
 
-CMD nginx
+CMD nginx -g 'daemon off;'
