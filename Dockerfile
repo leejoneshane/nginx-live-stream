@@ -9,7 +9,7 @@ RUN apk update  \
     && wget -O videojs.zip https://github.com/videojs/video.js/releases/download/v$VIDEOJS_VERSION/video-js-$VIDEOJS_VERSION.zip \
     && unzip -d /usr/share/nginx/html videojs.zip \
     && rm videojs.zip \
-    && cd /usr/share/nginx/html/video.js \
+    && cd /usr/share/nginx/html/ \
     && wget https://github.com/videojs/videojs-contrib-hls/releases/download/$HLS_VERSION/videojs-contrib-hls.min.js \
     && mkdir -p /var/rec
 
