@@ -17,7 +17,6 @@
   <script src="videojs-contrib-hls.min.js"></script>
   <script>
   var player = videojs('my-video');
-  var stream_name = 'null';
   
   function load_stat() {
     var xhttp = new XMLHttpRequest();
@@ -34,7 +33,7 @@
     var i;
     var xmlDoc = xml.responseXML;
     var streams = xmlDoc.getElementsByTagName("stream");
-    stream_name = streams[0].getElementsByTagName("name")[0].nodeValue;
+    var stream_name = streams[0].getElementsByTagName("name")[0].nodeValue;
     
     if (stream_name != 'null') {
       player.src({
