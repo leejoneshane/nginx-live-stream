@@ -41,7 +41,7 @@
         type: 'application/x-mpegURL'
       });
       player.play();  
-      document.getElementById("state").innerText = '';
+      document.getElementById("state").innerText = 'Video Source: http://' + windows.location.hostname + '/live/' + stream_name + '.m3u8';
       clearInterval(tid);
     }
   }
