@@ -5,7 +5,7 @@ ENV HLS_VERSION v5.11.0
 
 RUN apk update  \
     && apk add --no-cache openssl ca-certificates wget unzip nginx-mod-rtmp ffmpeg \
-    && rm -rf /var/cache/apk/*
+    && rm -rf /var/cache/apk/* \
     && wget -O videojs.zip https://github.com/videojs/video.js/releases/download/v$VIDEOJS_VERSION/video-js-$VIDEOJS_VERSION.zip \
     && unzip -d /usr/share/nginx/html videojs.zip \
     && rm videojs.zip \
