@@ -17,6 +17,7 @@
   <script src="videojs-contrib-hls.min.js"></script>
   <script>
   var player = videojs('my-video');
+  var tid;
   
   function load_stat() {
     var xhttp = new XMLHttpRequest();
@@ -33,19 +34,18 @@
     var i;
     var xmlDoc = xml.responseXML;
     var streams = xmlDoc.getElementsByTagName("stream");
-    var stream_name = streams[0].childNodes[0].nodeValue;
-    
-    if (stream_name != 'null') {
+    if (typeof streams[0] != 'undefined') {
+      var stream_name = streams[0].childNodes[0].nodeValue;
       player.src({
         src: '/live/' + stream_name + '.m3u8',
         type: 'application/x-mpegURL'
       });
       player.play();  
-      document.getElementByID("state").innerText = '';
+      document.getElementById("state").innerText = '';
       clearInterval(tid);
     }
   }
     
-  var tid = setInterval(load_stat, 1000);
+  tid = setInterval(load_stat, 1000);
   </script> 
 </body>
