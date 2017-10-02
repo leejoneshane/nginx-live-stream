@@ -10,7 +10,7 @@ RUN apk update  \
     && unzip -d /usr/share/nginx/html videojs.zip \
     && rm videojs.zip \
     && cd /usr/share/nginx/html/video.js \
-    && wget -O videojs-contrib-hls.min.js https://github.com/videojs/videojs-contrib-hls/releases/download/$HLS_VERSION/videojs-contrib-hls.min.js \
+    && wget https://github.com/videojs/videojs-contrib-hls/releases/download/$HLS_VERSION/videojs-contrib-hls.min.js \
     && mkdir -p /var/rec
 
 ADD nginx.conf /etc/nginx/conf.d/default.conf
