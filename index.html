@@ -17,10 +17,9 @@
   <script src="videojs-contrib-hls.min.js"></script>
   <script>
   var player = videojs('my-video');
-  var stream_name = 'undefined';
+  var stream_name = 'null';
   
   function load_stat() {
-    if (stream_name != 'undefined') return;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -37,14 +36,17 @@
     var streams = xmlDoc.getElementsByTagName("stream");
     stream_name = streams[0].getElementsByTagName("name")[0].nodeValue;
     
-    player.src({
-      src: '/live/' + stream_name + '.m3u8',
-      type: 'application/x-mpegURL'
-    });
-    player.play();  
-    document.getElementByID("state").innerText = '';
+    if (stream_name != 'null') {
+      player.src({
+        src: '/live/' + stream_name + '.m3u8',
+        type: 'application/x-mpegURL'
+      });
+      player.play();  
+      document.getElementByID("state").innerText = '';
+      clearInterval(tid);
+    }
   }
-  
-  setInterval(load_stat(), 1000);
+    
+  var tid = setInterval(load_stat, 1000);
   </script> 
 </body>
