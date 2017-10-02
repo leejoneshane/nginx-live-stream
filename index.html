@@ -35,7 +35,7 @@
     var xmlDoc = xml.responseXML;
     var streams = xmlDoc.getElementsByTagName("stream");
     if (typeof streams[0] != 'undefined') {
-      var stream_name = streams[0].childNodes[0].nodeValue;
+      var stream_name = streams[0].childNodes[1].childNodes[0].nodeValue;
       player.src({
         src: '/live/' + stream_name + '.m3u8',
         type: 'application/x-mpegURL'
