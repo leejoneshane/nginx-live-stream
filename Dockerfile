@@ -15,7 +15,7 @@ RUN apk update  \
     && cd /www \
     && wget https://github.com/videojs/videojs-contrib-hls/releases/download/$HLS_VERSION/videojs-contrib-hls.min.js \
     && mkdir -p /var/rec \
-    && chown -R www:www /www
+    && chown -R www:www /www /var/sock /var/rec
 
 ADD nginx.conf /etc/nginx/nginx.conf
 ADD stat.xsl /etc/nginx/static/stat.xsl
