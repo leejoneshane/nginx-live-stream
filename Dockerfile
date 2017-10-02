@@ -7,7 +7,7 @@ RUN apk update  \
     && apk add --no-cache openssl ca-certificates wget unzip nginx nginx-mod-rtmp ffmpeg \
     && rm -rf /var/cache/apk/* \
     && adduser -D -u 1000 -g 'www' www \
-    && mkdir /www /run/nginx \
+    && mkdir /www /run/nginx /var/sock /var/rec \
     && chown -R www:www /var/lib/nginx \
     && wget -O videojs.zip https://github.com/videojs/video.js/releases/download/v$VIDEOJS_VERSION/video-js-$VIDEOJS_VERSION.zip \
     && unzip -d /www videojs.zip \
