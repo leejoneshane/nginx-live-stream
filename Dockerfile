@@ -1,7 +1,7 @@
 FROM alpine
 
-ENV VIDEOJS_VERSION 6.2.8
-ENV HLS_VERSION v5.11.0
+ENV VIDEOJS_VERSION 7.10.2
+ENV HLS_VERSION v5.15.0
 
 RUN apk update  \
     && apk add --no-cache openssl ca-certificates wget unzip nginx nginx-mod-rtmp ffmpeg \
