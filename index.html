@@ -2,22 +2,29 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link href="video-js.min.css" rel="stylesheet">
-  <script src="ie8/videojs-ie8.min.js"></script>
 </head>
 
 <body>
   <div id="state">正在等候直播開始......</div>
-  <video id="my-video" class="video-js vjs-default-skin" controls preload="auto" width="600" height="300" data-setup="{}">
+  <video
+    id="my-video"
+    class="video-js"
+    controls
+    preload="auto"
+    width="800" 
+    height="600"
+    data-setup='{}'>
     <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a web browser that
-      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    To view this video please enable JavaScript, and consider upgrading to a
+    web browser that
+      <a href="https://videojs.com/html5-video-support/" target="_blank">
+      supports HTML5 video
+      </a>
     </p>
   </video>
-
   <script src="video.min.js"></script>
-  <script src="videojs-contrib-hls.min.js"></script>
   <script>
-  var player = videojs('my-video', {techOrder: ['flash', 'html5']});
+  var player = videojs('my-video', {techOrder: ['html5']});
   var tid;
   
   function load_stat() {
